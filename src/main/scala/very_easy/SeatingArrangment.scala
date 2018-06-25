@@ -27,8 +27,8 @@ object SeatingArrangment {
   }
 
   def mapWeightsFunctional(startEle: Int, endEle: Int, startSubsEle: Int, valueToSubs: Int): Map[Int, Int] = {
-    var t = startSubsEle + valueToSubs
-    (startEle to endEle).foldLeft(Map.empty[Int, Int])((map, key) => { t = t - valueToSubs; map + (key -> t) })
+    var value = startSubsEle + valueToSubs
+    (startEle to endEle).foldLeft(Map.empty[Int, Int])((map, key) => { value = value - valueToSubs; map + (key -> value) })
   }
 
   def findInterval(randNum: Int): (Int, Int) = {
@@ -44,8 +44,16 @@ object SeatingArrangment {
     matchMap(digit) + digit
   }
 
+  def identifySeatType(digit: Int): String = {
+    if (windowSeats.contains(digit)) {"Window"}
+    else if(middleSeats.contains(digit)) {"Middle"}
+    else {"Aisle"}
+  }
+
   def main(args: Array[String]): Unit = {
-    print(findOppositeElement(36))
+    val seat = 36
+    println("Opposite for " + seat + "-" + findOppositeElement(36))
+    println("Seat type - " + identifySeatType(36))
   }
 
 }
