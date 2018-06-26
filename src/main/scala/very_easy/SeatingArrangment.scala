@@ -44,16 +44,16 @@ object SeatingArrangment {
     matchMap(digit) + digit
   }
 
-  def identifySeatType(digit: Int): String = {
-    if (windowSeats.contains(digit)) {"Window"}
-    else if(middleSeats.contains(digit)) {"Middle"}
-    else {"Aisle"}
+  def identifySeatType(seatNumber: Int, collectionSize: Int): String = {
+    if (aisleSeats.take(collectionSize).contains(seatNumber)) {"Aisle"}
+    else if (windowSeats.take(collectionSize).contains(seatNumber)) {"Window"}
+    else {"Middle"}
   }
 
   def main(args: Array[String]): Unit = {
     val seat = 36
-    println("Opposite for " + seat + "-" + findOppositeElement(36))
-    println("Seat type - " + identifySeatType(36))
+    println("Opposite for " + seat + " is " + findOppositeElement(36))
+    println("Seat type is " + identifySeatType(36, 40))
   }
 
 }
