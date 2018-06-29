@@ -6,8 +6,7 @@ object TwoStrings {
   }
 
   def isMapsEqual(map1: Map[Char, Int], map2: Map[Char, Int]): Boolean = {
-    val rez = map1.foldLeft(0)((acc, curVal) => if (map2(curVal._1) != curVal._2) acc + 1 else acc)
-    rez == 0
+    map1.foldLeft(true)((acc, curVal) => if (map2(curVal._1) != curVal._2) acc && false else acc && true)
   }
 
   def statisticMap(str: String): Map[Char, Int] = {
@@ -15,6 +14,6 @@ object TwoStrings {
   }
 
   def main(args: Array[String]): Unit = {
-    println(isStringsIdentical("tpo","pl"))
+    println(isStringsIdentical("tpo","opt"))
   }
 }
