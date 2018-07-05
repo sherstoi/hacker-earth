@@ -1,4 +1,4 @@
-package easy
+package basic_implementation.input_output.easy
 
 object PlayWithNumbers {
 

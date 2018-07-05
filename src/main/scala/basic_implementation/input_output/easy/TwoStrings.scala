@@ -1,4 +1,4 @@
-package easy
+package basic_implementation.input_output.easy
 
 object TwoStrings {
   def isStringsIdentical(str1: String, str2: String): Boolean = {

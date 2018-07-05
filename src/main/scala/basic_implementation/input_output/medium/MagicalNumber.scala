@@ -1,4 +1,4 @@
-package medium
+package basic_implementation.input_output.medium
 
 object MagicalNumber {
   def isNumberPrime(number: Int): Boolean = {

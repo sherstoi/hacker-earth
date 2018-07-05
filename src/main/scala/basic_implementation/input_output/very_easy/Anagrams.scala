@@ -1,4 +1,4 @@
-package very_easy
+package basic_implementation.input_output.very_easy
 
 object Anagrams {
   def findCommonChars(firstStr: String, secStr: String): String = {

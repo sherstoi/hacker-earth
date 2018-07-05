@@ -1,4 +1,4 @@
-package medium
+package basic_implementation.input_output.medium
 
 object Cipher {
   val ALPHABET_SIZE = 26

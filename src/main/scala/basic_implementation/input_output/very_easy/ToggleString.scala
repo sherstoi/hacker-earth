@@ -1,4 +1,4 @@
-package very_easy
+package basic_implementation.input_output.very_easy
 
 object ToggleString {
   def toggle(str: String): String = {

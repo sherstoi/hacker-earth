@@ -1,4 +1,4 @@
-package very_easy
+package basic_implementation.input_output.very_easy
 
 object CountDivisor {
   def findDivisorInsideInterval(l: Int, r: Int, k: Int): Int = {
