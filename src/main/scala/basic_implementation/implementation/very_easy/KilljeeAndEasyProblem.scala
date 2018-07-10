@@ -56,7 +56,7 @@ object KilljeeAndEasyProblem {
       if (filteredVector.isEmpty) {
         listOfLists :+ Vector(curVal)
       } else {
-        val updVect = listOfLists.foldLeft(Vector.empty[Vector[(Int, Int)]]) ((collect, vectVal) => {
+        listOfLists.foldLeft(Vector.empty[Vector[(Int, Int)]]) ((collect, vectVal) => {
           if (vectVal.last._2 == curVal._1) {
             collect :+ (vectVal :+ curVal)
           } else {
@@ -67,7 +67,6 @@ object KilljeeAndEasyProblem {
         /* Or you can proceed with shorter form
           val updatedList = listOfLists.map(vec => if (vec.last._2 == curVal._1) vec :+ curVal
                                                  else vec)*/
-        updVect
       }})
   }
 
