@@ -19,7 +19,7 @@ object KilljeeAndEasyProblem {
     *          (4,5)   (4,6)
     * -------------------------------------------------------------
     */
-    // TODO implement
+    // TODO implement after data structure course
     def treeAproach(list: List[(Int, Int)]): Boolean = {
       true
     }
@@ -50,28 +50,29 @@ object KilljeeAndEasyProblem {
     })
   }
 
-  def makePathConcatInListWay(list: Vector[(Int, Int)]): Vector[Vector[(Int, Int)]] = {
+  def makePathConcatInImmutableWay(list: Vector[(Int, Int)]): Vector[Vector[(Int, Int)]] = {
     list.foldLeft(Vector.empty[Vector[(Int, Int)]])((listOfLists, curVal) => {
       val filteredVector = listOfLists.filter(p => p.last._2 == curVal._1)
-      println("ListOfLists: " + listOfLists.mkString)
-      println("Filter by " + curVal._1)
       if (filteredVector.isEmpty) {
-        val s = listOfLists :+ Vector(curVal)
-        println("Filter is empty, concat result " + s.mkString)
-        s
+        listOfLists :+ Vector(curVal)
       } else {
-        //listOfLists ++ filteredVector
-        val p = filteredVector.foldLeft(Vector.empty[Vector[(Int, Int)]])((vect, curV) => {
-          val newVal = curV :+ curVal
-          vect :+ newVal
+        val updVect = listOfLists.foldLeft(Vector.empty[Vector[(Int, Int)]]) ((collect, vectVal) => {
+          if (vectVal.last._2 == curVal._1) {
+            collect :+ (vectVal :+ curVal)
+          } else {
+            collect :+ vectVal
+          }
         })
-        p ++ listOfLists
+
+        /* Or you can proceed with shorter form
+          val updatedList = listOfLists.map(vec => if (vec.last._2 == curVal._1) vec :+ curVal
+                                                 else vec)*/
+        updVect
       }})
   }
 
   def main(args: Array[String]): Unit = {
     //val y = makePathConcatInMutableListWay(ListBuffer((1,2),(1,3),(2,3),(2,4),(3,4),(4,5),(4,6)))
-    val r = makePathConcatInListWay(Vector((1,2),(1,3),(2,3),(2,4),(3,4),(4,5),(4,6)))
-    val t = 1
+    println(makePathConcatInImmutableWay(Vector((1,2),(1,3),(2,3),(2,4),(3,4),(4,5),(4,6))).mkString)
   }
 }
