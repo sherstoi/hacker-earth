@@ -17,6 +17,5 @@ object TheGreatKian {
   def main(args: Array[String]): Unit = {
     val arr = List(1,2,3,4,5)
     println(calcSum(arrOfIndexes(2, 3), arr))
-
   }
 }
